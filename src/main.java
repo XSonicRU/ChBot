@@ -6,9 +6,7 @@ public class Main
 	public static void main(String[] args) throws IOException
 	{
 		while(true){
-			InputStreamReader isr = new InputStreamReader(System.in);
-			BufferedReader br = new BufferedReader(isr);
-			String input = br.readLine();
+			String input = tools.readit();
 			ChBot.processstring(input);
 		}
 	}

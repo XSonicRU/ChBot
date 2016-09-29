@@ -1,22 +1,22 @@
 package chekings;
 import java.util.*;
-
+import tools;
 public class Greetings
 {
+	private static boolean isalreadysaid=false;
 	private static String[] greetings = new String[]{"привет","хай","здаров", "дратути", "здоров", "здравствуй"};
 	public static boolean checkifgreeting(String tocheck){
-		tocheck.toLowerCase();
-		tocheck.trim();
-		for(String s:greetings){
-			if(tocheck.contains(s)){
-				return true;
-			}
-		}
-		return false;
+		return tools.checkifoneofall(greetings,tocheck);
 	}
 	public static String makeananswer(){
-		int rnumber = new Random().nextInt(greetings.length);
-		return beginwords.genbegword() + greetings[rnumber] + '.';
+		if(isalreadysaid == false){
+			int rnumber = new Random().nextInt(greetings.length);
+			isalreadysaid = true;
+			return beginwords.genbegword() + greetings[rnumber] + '.';
+		}else{
+			return "Уже здоровались!";
+		}
+		
 		
 	}
 }
